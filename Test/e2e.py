@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from ScoreFile.MainScores import url
+url = 'http://127.0.0.1:5000'
 
 def test_scores_service():
     my_driver = webdriver.Chrome()
@@ -13,6 +13,7 @@ def test_scores_service():
         return False
 
 def main_function():
+
    test_score = test_scores_service()
    if test_score:
        return 0
