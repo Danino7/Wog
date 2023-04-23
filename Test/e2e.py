@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from MainScores import url
+from ScoreFile.MainScores import url
 
 def test_scores_service():
     my_driver = webdriver.Chrome()
