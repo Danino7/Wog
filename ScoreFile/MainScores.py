@@ -1,6 +1,6 @@
 from flask import Flask, render_template_string
-from ScoreFile.Utils import SCORES_FILE_NAME, BAD_RETURN_CODE
 from os.path import exists
+from Utils import SCORES_FILE_NAME, BAD_RETURN_CODE
 import threading
 import webbrowser
 
@@ -21,5 +21,7 @@ def score_server():
 
 if __name__ == '__main__':
     url = 'http://127.0.0.1:5000'
-    threading.Timer(1.25, lambda: webbrowser.open(url)).start()
-    app.run()
+    # threading.Timer(1.25, lambda: webbrowser.open(url)).start()
+    app.run(host="0.0.0.0")
+
+url = 'http://127.0.0.1:5000'

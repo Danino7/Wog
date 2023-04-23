@@ -1,4 +1,4 @@
-from ScoreFile.Utils import SCORES_FILE_NAME
+from Utils import SCORES_FILE_NAME
 from os.path import exists
 def add_score(difficulty):
     #אם לא ניצח אין קובץ
@@ -12,7 +12,10 @@ def add_score(difficulty):
         current_score = int(contents) + POINTS_OF_WINNING
     else:
         current_score = POINTS_OF_WINNING
-    file = open(SCORES_FILE_NAME, 'w')
-    file.write(str(current_score))
-    file.close()
+        file = open(SCORES_FILE_NAME, 'w')
+        file.write(str(current_score))
+        file.close()
     return current_score
+
+
+
