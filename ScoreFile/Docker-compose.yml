@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  wog:
+    image: danino7/world_of_game:latest111
+    ports:
+      - "5001:5000"
+    environment:
+      - NGINX_PORT=80
