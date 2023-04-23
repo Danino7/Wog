@@ -1,5 +1,6 @@
 FROM python:3.9-slim
 WORKDIR /app
+RUN pip install selenium
 RUN pip install flask
 COPY ScoreFile/MainScores.py .
 COPY ScoreFile/Utils.py .
