@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Build - Build DockerImage') {
             steps {
-                sh 'docker build -f "ScoreFile/Dockerfile" -t wog .'
+                sh 'docker build -f "ScoreFile/Dockerfile" -t danino7/wog:latest .'
                     }
     }
         stage('Run') {
       steps {
-        sh 'docker run -d -p 8777:8777 wog'
+        sh 'docker run -d -p 8777:8777 danino7/wog:latest'
       }
     }
         stage('Test') {
@@ -25,11 +25,9 @@ pipeline {
     }
         stage('Finalize') {
             steps {
-                   sh "docker tag wog  danino7/wog"
                    sh 'docker push danino7/wog:latest'
                   }
     }
 }
 
 }
-
