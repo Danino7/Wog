@@ -13,7 +13,7 @@ def test_scores_service(url):
         return False
 
 def main_function():
-   url = 'http://127.0.0.1:5000'
+   url = 'http://127.0.0.1:8777'
    if test_scores_service(url):
        return 0
    else:
