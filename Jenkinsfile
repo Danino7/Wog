@@ -12,23 +12,26 @@ pipeline {
                 sh 'docker build -f "ScoreFile/Dockerfile" -t danino7/wog:latest .'
                     }
     }
-        stage('Run') {
-      steps {
-        sh 'docker compose -f "ScoreFile/Docker-compose.yml" up -d'
+        stage('Run - will run our dockerized application') {
+            steps {
+                sh 'docker-compose -f "ScoreFile/docker-compose.yml" up -d'
       }
     }
         stage('Test') {
             steps {
                    sh "pip3 install selenium"
                    sh 'python3 Test/e2e.py'
+                    
                   }
     }
         stage('Finalize') {
             steps {
-                   sh 'docker compose -f "ScoreFile/Docker-compose.yml" down'
+                   sh 'docker-compose -f "ScoreFile/docker-compose.yml" down'
                    sh 'docker push danino7/wog:latest'
                   }
     }
+
 }
 
 }
+
