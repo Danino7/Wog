@@ -14,7 +14,7 @@ pipeline {
     }
         stage('Run') {
       steps {
-        sh 'docker run -d -p 8777:8777 danino7/wog:latest'
+        sh 'docker compose -f "ScoreFile/Docker-compose.yml" up -d'
       }
     }
         stage('Test') {
@@ -25,6 +25,7 @@ pipeline {
     }
         stage('Finalize') {
             steps {
+                   sh 'docker compose -f "ScoreFile/Docker-compose.yml" down'
                    sh 'docker push danino7/wog:latest'
                   }
     }
